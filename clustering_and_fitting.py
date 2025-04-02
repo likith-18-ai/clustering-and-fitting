@@ -109,8 +109,8 @@ def main():
     plot_statistical_plot(df)
     moments = statistical_analysis(df, 'popularity')
     print(f'Statistics for Popularity: {moments}')
-    labels, x, y, xkmeans, ykmeans = perform_clustering(df, 
-                                                        'popularity', 
+    labels, x, y, xkmeans, ykmeans = perform_clustering(df,
+                                                        'popularity',
                                                         'vote_average')
     plot_clustered_data(labels, x, y, xkmeans, ykmeans)
     X, y, y_pred = perform_fitting(df, 'budget', 'revenue')
