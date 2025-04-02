@@ -53,6 +53,7 @@ def statistical_analysis(df, col):
 
 def preprocessing(df):
     df = df.drop(columns=['duration'], errors='ignore')
+ 
     df = df.dropna() 
     return df
 
@@ -109,6 +110,7 @@ def main():
     plot_clustered_data(labels, x, y, xkmeans, ykmeans)
     X, y, y_pred = perform_fitting(df, 'budget', 'revenue')
     plot_fitted_data(X, y, y_pred)
+
 
 if __name__ == '__main__':
     main()
