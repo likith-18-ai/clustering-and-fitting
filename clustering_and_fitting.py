@@ -38,7 +38,9 @@ def plot_categorical_plot(df):
 
 def plot_statistical_plot(df):
     plt.figure(figsize=(8, 6))
-    sns.heatmap(df[['popularity', 'vote_count', 'vote_average', 'budget', 'revenue']].corr(), annot=True, cmap='coolwarm')
+    sns.heatmap(df[['popularity', 'vote_count', 
+                    'vote_average', 'budget',
+                    'revenue']].corr(), annot=True, cmap='coolwarm')
     plt.title('Correlation Heatmap')
     plt.savefig('statistical_plot.png')
 
