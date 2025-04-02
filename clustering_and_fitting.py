@@ -77,11 +77,9 @@ def plot_clustered_data(labels, x, y, xkmeans, ykmeans):
 def perform_fitting(df, col1, col2):
     X = df[[col1]].dropna()
     y = df[col2].loc[X.index]
-    
     model = LinearRegression()
     model.fit(X, y)
     y_pred = model.predict(X)
-    
     return X[col1], y, y_pred
 
 def plot_fitted_data(X, y, y_pred):
@@ -97,17 +95,13 @@ def plot_fitted_data(X, y, y_pred):
 def main():
     df = pd.read_csv('data.csv')
     df = preprocessing(df)
-    
     plot_relational_plot(df)
     plot_categorical_plot(df)
     plot_statistical_plot(df)
-    
     moments = statistical_analysis(df, 'popularity')
     print(f'Statistics for Popularity: {moments}')
-    
     labels, x, y, xkmeans, ykmeans = perform_clustering(df, 'popularity', 'vote_average')
     plot_clustered_data(labels, x, y, xkmeans, ykmeans)
-    
     X, y, y_pred = perform_fitting(df, 'budget', 'revenue')
     plot_fitted_data(X, y, y_pred)
 
