@@ -10,7 +10,6 @@ Fitting should be done with only 1 target variable and 1 feature variable,
 likewise, clustering should be done with only 2 variables.
 """
 import matplotlib.pyplot as plt
-import numpy as np
 import pandas as pd
 import scipy.stats as ss
 import seaborn as sns
@@ -27,6 +26,7 @@ def plot_relational_plot(df):
     plt.title('Popularity vs Rating')
     plt.savefig('relational_plot.png')
 
+
 def plot_categorical_plot(df):
     plt.figure(figsize=(8, 6))
     sns.histplot(df['type'], discrete=True)
@@ -35,11 +35,13 @@ def plot_categorical_plot(df):
     plt.title('Distribution of Movie Types')
     plt.savefig('categorical_plot.png')
 
+
 def plot_statistical_plot(df):
     plt.figure(figsize=(8, 6))
     sns.heatmap(df[['popularity', 'vote_count', 'vote_average', 'budget', 'revenue']].corr(), annot=True, cmap='coolwarm')
     plt.title('Correlation Heatmap')
     plt.savefig('statistical_plot.png')
+
 
 def statistical_analysis(df, col):
     mean = df[col].mean()
@@ -63,6 +65,7 @@ def perform_clustering(df, col1, col2):
     labels = kmeans.fit_predict(X_scaled)
     return labels, X[col1], X[col2], kmeans.cluster_centers_[:, 0], kmeans.cluster_centers_[:, 1]
 
+
 def plot_clustered_data(labels, x, y, xkmeans, ykmeans):
     plt.figure(figsize=(8, 6))
     sns.scatterplot(x=x, y=y, hue=labels, palette='viridis')
@@ -73,6 +76,7 @@ def plot_clustered_data(labels, x, y, xkmeans, ykmeans):
     plt.legend()
     plt.savefig('clustering.png')
 
+
 def perform_fitting(df, col1, col2):
     X = df[[col1]].dropna()
     y = df[col2].loc[X.index]
@@ -80,6 +84,7 @@ def perform_fitting(df, col1, col2):
     model.fit(X, y)
     y_pred = model.predict(X)
     return X[col1], y, y_pred
+
 
 def plot_fitted_data(X, y, y_pred):
     plt.figure(figsize=(8, 6))
@@ -90,6 +95,7 @@ def plot_fitted_data(X, y, y_pred):
     plt.title('Linear Regression: Budget vs Revenue')
     plt.legend()
     plt.savefig('fitting.png')
+
 
 def main():
     df = pd.read_csv('data.csv')
