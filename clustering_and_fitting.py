@@ -70,7 +70,7 @@ def perform_clustering(df, col1, col2):
     X[col1],
     X[col2],
     kmeans.cluster_centers_[:, 0],
-    kmeans.cluster_centers_[:, 1]
+    kmeans.cluster_centers_[:, 1],
 )
 
 
