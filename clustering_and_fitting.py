@@ -74,7 +74,6 @@ def perform_clustering(df, col1, col2):
 )
 
 
-
 def plot_clustered_data(labels, x, y, xkmeans, ykmeans):
     plt.figure(figsize=(8, 6))
     sns.scatterplot(x=x, y=y, hue=labels, palette='viridis')
