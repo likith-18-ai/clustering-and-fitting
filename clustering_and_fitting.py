@@ -38,7 +38,7 @@ def plot_categorical_plot(df):
 
 def plot_statistical_plot(df):
     plt.figure(figsize=(8, 6))
-    sns.heatmap(df[['popularity', 'vote_count', 
+    sns.heatmap(df[['popularity', 'vote_count',
                     'vote_average', 'budget',
                     'revenue']].corr(), annot=True, cmap='coolwarm')
     plt.title('Correlation Heatmap')
@@ -71,8 +71,8 @@ def perform_clustering(df, col1, col2):
 def plot_clustered_data(labels, x, y, xkmeans, ykmeans):
     plt.figure(figsize=(8, 6))
     sns.scatterplot(x=x, y=y, hue=labels, palette='viridis')
-    plt.scatter(xkmeans, 
-                ykmeans, c='red', 
+    plt.scatter(xkmeans,
+                ykmeans, c='red',
                 marker='X', s=100, label='Centroids')
     plt.xlabel('Popularity')  # Explicit column name
     plt.ylabel('Vote Average')  # Explicit column name
