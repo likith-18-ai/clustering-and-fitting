@@ -66,10 +66,10 @@ def perform_clustering(df, col1, col2):
     kmeans = KMeans(n_clusters=3, random_state=42, n_init=10)
     labels = kmeans.fit_predict(X_scaled)
     return (
-    labels, 
-    X[col1], 
-    X[col2], 
-    kmeans.cluster_centers_[:, 0], 
+    labels,
+    X[col1],
+    X[col2],
+    kmeans.cluster_centers_[:, 0],
     kmeans.cluster_centers_[:, 1]
 )
 
