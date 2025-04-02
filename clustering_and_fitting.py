@@ -53,8 +53,6 @@ def statistical_analysis(df, col):
 
 def preprocessing(df):
     df = df.drop(columns=['duration'], errors='ignore')
-
- 
     df = df.dropna()
     return df
 
